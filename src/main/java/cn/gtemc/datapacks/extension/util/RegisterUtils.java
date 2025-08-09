@@ -1,4 +1,4 @@
-package cn.gtemc.datapacks.extension.utils;
+package cn.gtemc.datapacks.extension.util;
 
 import cn.gtemc.datapacks.extension.DatapacksExtensionBootstrap;
 import net.minecraft.core.MappedRegistry;

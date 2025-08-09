@@ -1,4 +1,4 @@
-package cn.gtemc.datapacks.extension.utils;
+package cn.gtemc.datapacks.extension.util;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
