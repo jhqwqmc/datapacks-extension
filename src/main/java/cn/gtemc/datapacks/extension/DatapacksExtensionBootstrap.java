@@ -12,6 +12,7 @@ import org.jetbrains.annotations.NotNull;
 @SuppressWarnings("UnstableApiUsage")
 public class DatapacksExtensionBootstrap implements PluginBootstrap {
     private static DatapacksExtensionBootstrap instance;
+    private static boolean initialized = false;
     private ComponentLogger logger;
 
     @Override
@@ -19,11 +20,14 @@ public class DatapacksExtensionBootstrap implements PluginBootstrap {
         instance = this;
         this.logger = context.getLogger();
         context.getLifecycleManager().registerEventHandler(LifecycleEvents.DATAPACK_DISCOVERY, (e) -> {
+            if (initialized) return;
             try {
                 this.logger.info("Registering datapacks extension...");
                 Features.init();
             } catch (Throwable ex) {
                 this.logger.warn("Failed to register", ex);
+            } finally {
+                initialized = true;
             }
         });
     }
